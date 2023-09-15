@@ -1,0 +1,146 @@
+.welcomePage_box{
+    position: relative;
+    @include breakpoints(md){
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+    @include breakpoints(mdMin){
+        padding-left: px(40);
+        max-height: calc(100vh - 40%);
+        background-color: var(--main-color);
+    }
+}
+.card_box{
+    text-align: center;
+    background-color: $white-color;
+    position: relative; 
+    box-shadow: 0 0 12px 5px rgba(42 ,52, 48, .30); 
+    padding: 1rem ; 
+    @include breakpoints(md){
+        margin: 0 auto;
+        width: 98%;
+        padding: 1rem 0.5rem; 
+    }
+    @include breakpoints(mdMin){
+        padding-right: calc(16% + 15px);
+        &::before{
+            content: "";
+            @include absolute(0,0);
+            width: 16%;
+            background: url('../img/shapes.png') no-repeat center center;
+            background-size: contain;
+            height: 100%; 
+            background-color: var(--main-color);
+            @include breakpoints(xs){
+                @include transform(rotate(90deg));
+            }
+        }
+    }
+
+    &-content{
+        font-family: #{$defaultFont}-Bold;
+        padding-bottom: px(10);
+        @include display-flex('center','','',column);
+        @include breakpoints(md){
+            margin-top: 1rem;
+        }
+    }
+    &-title{
+        border-bottom: 1px dashed var(--main-color); 
+        padding-bottom: 0.5rem; 
+        width: max-content;
+        margin-right: auto;
+        margin-left: auto;
+        animation: fade-bottom 1.5s;
+        @include breakpoints(xs){
+            font-size: px(16);
+        }
+
+    }
+    .txt_p{
+        font-family: #{$defaultFont}-Light;
+        @include breakpoints(xs){
+            font-size: px(13);
+        }
+    }
+    .btn_action {
+        display: block;
+        margin: 2rem auto 0 auto;
+        @include breakpoints(xs){
+            font-size: px(14);
+            width: auto;
+            padding: 0.5rem 1.7rem;
+        }
+    }
+}
+.logo{
+    margin-bottom: 1rem;
+    img{
+        object-fit: contain;
+        max-height: px(200);
+        max-width: 100%;
+        @include breakpoints(md){
+            max-height: px(140);
+        }
+        @include breakpoints(xs){
+            max-height: px(100);
+        }
+    }
+}
+.emara{
+    color: var(--main-color);
+    text-transform: capitalize;
+    letter-spacing: 1px; 
+    @include breakpoints(xlarge){
+        font-size: px(18);
+    }
+    @include breakpoints(large){
+        font-size: px(16);
+    }
+}
+.card_badge{
+    color: var(--main-color);
+    padding: 0.5rem 1.5rem;
+    @include breakpoints(mdMin){
+        @include absolute(calc(50% - 8px),'','',13%);
+        @include transform(translateY(-50%));
+        height: calc(100% + 72px);
+        background-color: var(--main-color);
+        color: $white-color;
+    }
+    @include breakpoints(md){
+        margin-bottom: 1rem;
+        font-family: #{$defaultFont}-Bold;
+    }
+}
+.large_links{
+
+    @include breakpoints(mdMin){
+        text-align: left;
+        .butn:link, .butn:visited{
+            max-width: 280px;
+            animation: fade-left 1s linear;
+            animation-fill-mode:both;
+        }
+    }
+    @include breakpoints(md){
+        @include display-flex('space-around',center);
+        margin-top: 1.2rem;
+        margin-bottom: 1.2rem;
+        .butn{
+            margin: 0 0 0 .2rem !important;
+            flex: 1 1 0;
+            padding: 0.2rem 0 !important;
+            font-size: px(13) !important;
+
+            &:last-child{
+                margin: 0  !important;
+            }
+        }
+    }
+}
+@for $i from 1 through 10 {
+    .large_links .butn:nth-child(#{$i}n) {
+        animation-delay: #{$i * 0.5}s;
+    }
+}

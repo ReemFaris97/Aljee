@@ -1,0 +1,128 @@
+.contact{
+    @include breakpoints(mdMin){
+        max-width: 280px;
+    }
+    @include breakpoints(md){
+        @include display-flex('', center,wrap);
+        margin-top: 1rem; 
+        margin-bottom: 1.5rem; 
+        flex-direction: column; 
+        align-items: self-start;
+
+        // .social , .appDownload{
+        //     width: 100%;
+        //     flex: 1 0 100%;
+        //     max-width: 100%;
+        // }
+    }
+}
+
+/************* Start Social **************/
+.social{
+    position: relative;
+    margin-bottom: px(16);
+    @include display-flex;
+    animation: fade-bottom 1s;
+    animation-fill-mode:both;
+    @include breakpoints(xsMin){
+        padding-right: px(30);
+        &::before{
+            content: "";
+            width: px(30);
+            height: px(10);
+            background-color: var(--main-color);
+            @include absolute(calc(50% - 5px),0);
+        }
+    }
+    &_lnk{
+        margin-right: px(10);
+        .icon{
+            color: var(--main-color);
+            
+        }
+    }
+    .icon{
+        font-size: px(19);
+      }
+}
+.block{
+    background-color: var(--main-color);
+    color: $white-color;
+    margin-bottom: px(10);
+    padding: px(7) px(20) px(7) px(4);
+    @include breakpoints(md){
+        padding: px(7) px(20);
+    }
+}
+/************* !!End Social **************/
+/************* Start Download **************/
+.appDownload{
+    @include display-flex('space-between','center');
+    @include breakpoints(xs){
+        text-align: center; 
+        padding: 0.3rem; 
+        margin-bottom: 1.2rem;
+    }
+    &.block{
+        
+        .txt_p{
+            font-size: px(14);
+            @include breakpoints(xs){
+                font-size: px(13);
+                width: 100%;
+                min-width: max-content;
+            }
+            @include breakpoints(mdMin){
+                flex: 1 0 50%; 
+            }
+        }
+    }
+    &_lnks{
+        @include breakpoints(md){
+            margin-right: 1rem;
+        }
+        @include breakpoints(xs){
+            width: 100%; 
+        }
+        @include breakpoints(mdMin){
+            flex: 1 0 50%; 
+        }
+        text-align: center; 
+
+    }
+    &_lnk{
+        &:not(:last-child){
+            margin-left: px(10);
+        }
+        .icon{
+            font-size: px(24);
+            color: $white-color;
+        }
+    }
+}
+/************* !!End Download **************/
+/************* Start calling **************/
+.calling{
+    padding-right: px(30);
+    &_item{
+        @include display-flex('','center');
+    }
+    .icon{
+        color: var(--main-color);
+        font-size: px(15);
+        margin-left: px(10);
+    }
+    .space{
+        margin-left: px(5);
+        margin-right: px(5);
+    }
+    &_lnk{
+        display: block;
+        color: $black-color;
+        @include transition(all ,.4s ,ease-in-out);
+        &:hover , &:focus{
+            color: var(--main-color);
+        }
+    }
+}
+/************* !!End calling **************/

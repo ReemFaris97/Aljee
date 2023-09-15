@@ -1,0 +1,113 @@
+
+* {
+    box-sizing: border-box;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+body {
+  font-family: #{$defaultFont}, sans-serif;
+  box-sizing: border-box;
+  text-align: right;
+  direction: rtl;
+  padding: 0;
+  margin: 0;
+  scrollbar-width: thin;
+  overflow: hidden;
+overflow-y: auto;
+color: $black-color;
+  &::-webkit-scrollbar {
+      width: px(3);
+  }
+  &::-webkit-scrollbar-thumb {
+      background-color: rgba(var(--main-color), 0.9);
+      border-radius: px(50);
+  }
+  &::-webkit-scrollbar-track {
+      background: transparent;
+  }
+}
+
+
+a {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+// Always hide an element with the `hidden` HTML attribute (from PureCSS).
+// Needed for proper display in IE 10-.
+[hidden] {
+    display: none !important;
+}
+//
+// Correct element displays
+//
+
+output {
+    display: inline-block;
+}
+summary {
+  display: list-item; // Add the correct display in all browsers
+  cursor: pointer;
+}
+
+
+// Remove inner border and padding from Firefox, but don't restore the outline like Normalize.
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  box-sizing: border-box; // 1. Add the correct box sizing in IE 10-
+  padding: 0; // 2. Remove the padding in IE 10-
+}
+
+// Details at https://github.com/twbs/bootstrap/issues/24990
+select {
+  word-wrap: normal;
+}
+
+// Images and content
+img {
+  vertical-align: middle !important;
+  border-style: none; // Remove the border on images inside links in IE 10-.
+}
+
+svg {
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.bold {
+  font-family: #{$defaultFont}-Bold;
+  
+}
+
+.txt_p{
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.2;
+  font-family: #{$defaultFont}-Light;
+
+  @include breakpoints(smMin){
+      font-size: px(16);
+  }
+
+}
+.h-lg-100{
+  @include breakpoints(mdMin){
+    height: 100%;
+  }
+}

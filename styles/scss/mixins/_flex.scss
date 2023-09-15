@@ -1,0 +1,11 @@
+@mixin display-flex($justify:'', $align:'', $wrap: '', $direction: '',$self:'') {
+    display: flex;
+    justify-content: #{$justify};
+    align-items: #{$align};
+    flex-wrap: #{$wrap};
+    flex-direction: #{$direction};
+    align-self: #{$self};
+  }
+
+
+  // @include display-flex("space-around/center", "center/strech", wrap", "column/row");

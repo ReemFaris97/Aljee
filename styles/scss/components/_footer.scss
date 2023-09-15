@@ -1,0 +1,54 @@
+.footer{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    @include breakpoints(mdMin){
+        @include absolute('','',0,0);
+    }
+    &_lnk{
+        font-family: #{$defaultFont}-Light;
+        color: $black-color;
+        font-size: px(14);
+        &:not(:last-child):not(:only-child){
+            margin-left: px(30);
+        }
+        &:hover , &:focus{
+            color: var(--main-color);
+        }
+    }
+    &::after{
+        content: "";
+        width: 6px;
+        height: 6px;
+        @include border-radius(50%); 
+        @include absolute(calc(50% - 2px),0,'',0);
+        margin: 0 auto;
+        background-color: rgba($black-color , .7);
+    }
+    @include breakpoints(lab){
+        &::after{
+            display: none;
+        }
+        &_lnk{
+            display: block;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+    }
+    &_wrapper{
+        .welcomePage_right{
+            width: max-content;
+        }
+        .welcomePage_left {
+            padding-left: 2rem;
+        }
+        .footer {
+            position: relative;
+            @include breakpoints(xsMin){
+                width: max-content;
+                margin-left: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,97 @@
+.emara_logo{
+    margin-bottom: 0.7rem;
+    width: max-content;
+    @include display-flex('center','center');
+    .img{
+        object-fit: contain;
+        max-width: 8rem;
+        @include breakpoints(smMin){
+            max-width: 12rem;
+        }
+    }
+}
+.infoPage{
+    position: relative;
+    padding-top:1.6rem;
+    overflow: hidden; 
+    &::before{
+        content: "";
+        @include absolute(0,'','',0);
+        width: 50%;
+        height: 1.6rem;
+        background-color: var(--main-color);
+    }
+    &_content{
+        padding: 1rem 0;
+    }
+    &_wrapper{
+        @include breakpoints(smMin){
+            background: url('../img/shapes-colored.png') top right repeat-y;
+            background-size: 2.5rem auto;
+            padding-right: 5.5rem;
+        }
+    }
+    &_box{
+        padding-right:1rem;
+        padding-left:1rem;
+        margin-bottom: 2rem; 
+        @include breakpoints(xsMin){
+            padding-right:2rem;
+            padding-left:2rem;
+        }
+        &-title{
+            font-family: #{$defaultFont}-Bold;
+            border-top: 1px dashed var(--main-color); 
+            border-bottom: 1px dashed var(--main-color); 
+            padding-bottom: 0.5rem; 
+            width: max-content;
+            animation: fade-bottom 1.5s;
+            margin-bottom: 1rem;
+            font-size: 1.5rem; 
+            padding-top: 0.4rem;
+            padding-bottom: 0.4rem;
+            @include breakpoints(xs){
+                font-size: px(16);
+            }
+            @include breakpoints(smMin){
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}
+.info_group{
+    margin-bottom: 1.35rem;
+
+    &-title{
+        font-family: #{$defaultFont}-Bold;
+        font-size: 1.25rem; 
+        margin-bottom: 0; 
+        @include breakpoints(xs){
+            font-size: px(15);
+        }
+    }
+    &-txt{
+        font-size: 1rem; 
+        @include breakpoints(xs){
+            font-size: px(14);
+        }
+    }
+    img{
+        max-height: 140px;
+        max-width: 140px;
+    }
+    &-item{
+        font-size: 1rem; 
+        @include breakpoints(xs){
+            font-size: px(14);
+        }
+        &::before {
+            content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+            color: inherit; /* Change the color */
+            font-weight: bold; /* If you want it to be bold */
+            display: inline-block; /* Needed to add space between the bullet and the text */
+            width: 1em; /* Also needed for space (tweak if needed) */
+          }
+
+    }
+}

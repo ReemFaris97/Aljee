@@ -1,0 +1,68 @@
+@mixin breakpoints($point) {
+    @if $point == xs {
+        @media (max-width: 576px) {
+            @content;
+        }
+    } 
+    @if $point == xsMin {
+        @media (min-width: 577px) {
+            @content;
+        }
+    } 
+    @else if $point == sm {
+        @media (max-width: 767px) {
+            @content;
+        }
+    } @else if $point == smMin {
+        @media (min-width: 768px) {
+            @content;
+        }
+    } @else if $point == md {
+        @media (max-width: 991px) {
+            @content;
+        }
+    } @else if $point == mdMin {
+        @media (min-width: 992px) {
+            @content;
+        }
+    } @else if $point == large {
+        @media (max-width: 1200px) {
+            @content;
+        }
+    } @else if $point == xlarge {
+        @media (max-width: 1400px) {
+            @content;
+        }
+    } @else if $point == xxlarge {
+        @media (max-width: 3000px) {
+            @content;
+        }
+    }@else if $point == lab {
+        @media (min-width: 992px) and (max-width: 1199px) {
+            @content;
+        }
+    }
+}
+
+// height
+@mixin height($point) {
+    @if $point == laptop {
+        @media (max-width: 1920px) and (max-height: 830px) {
+            @content;
+        }
+    }
+    @if $point == tablet {
+        @media (max-width: 1920px) and (max-height: 676px) {
+            @content;
+        }
+    }
+    @if $point == s-tablet {
+        @media (max-width: 1920px) and (max-height: 600px) {
+            @content;
+        }
+    } @else if $point == xxlarge {
+        @media (min-width: 1401px) and (max-width: 3000px) {
+            @content;
+        }
+    }
+}

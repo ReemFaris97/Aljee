@@ -1,0 +1,95 @@
+.butn {
+    font-family: #{$defaultFont}-Bold;
+    &:link,
+    &:visited {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: px(16);
+        text-align: center; 
+        text-transform: uppercase;
+        text-decoration: none;
+        background-color: var(--secondary-color);
+        background-image: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+        padding: px(6) px(12);
+        height: px(42);
+        width: 100%;
+        margin-right: auto;
+        margin-left: 0;
+        border: none;
+        color: $white-color;
+        position: relative;
+        overflow: hidden;
+        @include transition(all, 0.3s, ease-in-out);
+        &:not(:last-child){
+            margin-bottom: px(16);
+        }
+    }
+    &::before,
+    &::after {
+        background: $white-color;
+        content: "";
+        opacity: 0;
+        @include absolute(px(-50));
+        @include transform(rotate(35deg));
+        @include transition(all, 3000ms, cubic-bezier(0.19, 1, 0.22, 1));
+    }
+    &::before {
+        height: 155px;
+        width: 50px;
+    }
+    &::after {
+        width: 8rem;
+    }
+    &__new {
+        &::before {
+            left: -50%;
+        }
+        &::after {
+            left: -100%;
+        }
+    }
+    &:hover,
+    &:active {
+        @include transform(translateY(-3px));
+        color: $white-color;
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
+    }
+    &:hover {
+        &::before {
+            left: 120%;
+            opacity: 0.5;
+        }
+        &::after {
+            left: 200%;
+            opacity: 0.6;
+        }
+    }
+    span {
+        z-index: 20;
+    }
+    @include breakpoints(large){
+        font-size: px(14) !important; 
+        padding: px(4) px(8) !important;
+    }
+}
+
+/****************************************/
+.btn_action{
+    cursor: pointer;
+    box-shadow: 0 4px 3px 0 rgba(80, 80, 80, .2);
+    width: 155px;
+    padding: 0.7rem; 
+    border: none;
+    @include border-radius(30px);
+    @include transition(all ,0.3s ,ease);
+    margin: 0 10px 40px;
+    color:$black-color;
+    background-color: $gray-bg;
+    &:hover , &:focus{
+        width: 160px;
+        background-color: var(--main-color);
+        box-shadow: -1px 6px 10px 0 rgba(120, 60, 20, .2);
+        color: $white-color;
+    }
+}

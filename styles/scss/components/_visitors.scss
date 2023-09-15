@@ -1,0 +1,16 @@
+/*Start Visitors*/
+.visitors{
+    font-family: #{$defaultFont}-Light;
+    margin-right: 2rem;
+    font-weight: 500; 
+    @include breakpoints(mdMin){
+        font-size: px(18);
+        @include absolute(2rem,2rem)
+    }
+    @include breakpoints(md){
+        text-align: left; 
+        padding-left: 1rem;
+        font-size: px(14);
+    }
+}
+/*!!End Visitors*/
